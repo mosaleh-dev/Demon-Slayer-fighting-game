@@ -19,7 +19,7 @@ class Sprite {
     this.offset = offset;
   }
 
-  drow() {
+  draw() {
     ctx.drawImage(
       this.img,
       this.currentFrame * (this.img.width / this.framesMax),
@@ -29,7 +29,7 @@ class Sprite {
       this.possition.x - this.offset.x,
       this.possition.y - this.offset.y,
       (this.img.width / this.framesMax) * this.scale,
-      this.img.height * this.scale
+      this.img.height * this.scale,
     );
   }
 
@@ -43,7 +43,7 @@ class Sprite {
   }
 
   update() {
-    this.drow();
+    this.draw();
     this.animateFrames();
   }
 }
@@ -124,7 +124,7 @@ class Fighter extends Sprite {
   }
 
   update() {
-    this.drow();
+    this.draw();
     if (!this.dead) this.animateFrames();
     //attackBox
     this.attackBox.possition.x = this.possition.x + this.attackBox.offset.x;
